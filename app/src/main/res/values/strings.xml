@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">The Rick And Morty</string>
+    <string name="toolbar_title">Characters</string>
+    <string name="toolbar_title_character_details">Character Details</string>
+    <string name="character_name">Name:</string>
+    <string name="character_status">Status:</string>
+    <string name="character_species">Species:</string>
+    <string name="character_gender">Gender:</string>
+    <string name="episode_name">Name:</string>
+    <string name="episode_air_date">Air date:</string>
+    <string name="episode_episode">Episode:</string>
+    <string name="episode_details">Episode Details</string>
+</resources>

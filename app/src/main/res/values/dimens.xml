@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="textSizeTitle">20sp</dimen>
+    <dimen name="defaultElevation">4dp</dimen>
+    <dimen name="defaultMarginDouble">16dp</dimen>
+    <dimen name="defaultPadding">8dp</dimen>
+    <dimen name="defaultMargin">8dp</dimen>
+    <dimen name="itemElevation">2dp</dimen>
+    <dimen name="cardDefaultRoundCorners">8dp</dimen>
+</resources>

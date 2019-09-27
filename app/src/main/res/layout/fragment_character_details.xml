@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:elevation="@dimen/defaultElevation"
+        android:background="@color/toolbarBackgorundcolor"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/toolbarTitle"
+            android:text="@string/toolbar_title_character_details"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/textSizeTitle"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </androidx.appcompat.widget.Toolbar>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:elevation="@dimen/itemElevation"
+        android:background="@color/colorWhite"
+        android:id="@+id/characterStats"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        android:paddingBottom="@dimen/defaultPadding"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/avatar"
+            android:layout_width="194dp"
+            android:layout_height="153dp"
+            android:layout_margin="@dimen/defaultMargin"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+
+            tools:src="@color/colorAccent" />
+        <TextView
+            android:id="@+id/name"
+            android:textColor="@color/colorPrimary"
+            android:layout_marginStart="@dimen/defaultMarginDouble"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/defaultMarginDouble"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/avatar"
+            tools:text="Name: Bob Marley"/>
+        <TextView
+            android:id="@+id/status"
+            android:textColor="@color/colorPrimary"
+            android:layout_marginTop="@dimen/defaultMargin"
+            android:layout_marginStart="@dimen/defaultMarginDouble"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/name"
+            tools:text="Status: Alive"/>
+        <TextView
+            android:id="@+id/species"
+            android:textColor="@color/colorPrimary"
+            android:layout_marginTop="@dimen/defaultMargin"
+            android:layout_marginStart="@dimen/defaultMarginDouble"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Species: Human"/>
+        <TextView
+            android:id="@+id/gender"
+            android:textColor="@color/colorPrimary"
+            android:layout_marginTop="@dimen/defaultMargin"
+            android:layout_marginStart="@dimen/defaultMarginDouble"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/species"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Gender: Male"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler"
+        app:layout_constraintTop_toBottomOf="@id/characterStats"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"/>
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
