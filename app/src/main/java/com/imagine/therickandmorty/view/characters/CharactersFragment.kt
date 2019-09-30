@@ -17,9 +17,7 @@ import com.imagine.therickandmorty.view.characters.adapter.CharactersAdapter
 import com.imagine.therickandmorty.view.characters.details.CharacterDetailsActivity
 import com.imagine.therickandmorty.view.characters.listeners.OnCharacterClickListener
 import kotlinx.android.synthetic.main.fragment_characters.*
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 import java.lang.ref.WeakReference
 
 class CharactersFragment : Fragment() {
@@ -132,14 +130,21 @@ class CharactersFragment : Fragment() {
     private fun loadPosts() {
         if (!searchMode) {
             uiScope.launch {
-                progressBar.visibility = View.VISIBLE
-                val characters = repository.getCharacters(page)
-                listOfCharacters.addAll(characters)
-                adapter.replaceItems(listOfCharacters)
-                page++
-                progressBar.visibility = View.GONE
+                withTimeout(30000L) {
+                    setProgress(true)
+                    val characters = repository.getCharacters(page)
+
+                    onGetCharacters(characters)
+                    setProgress(false)
+                }
             }
         }
+    }
+
+    private fun onGetCharacters(characters: List<CharacterModel>) {
+        listOfCharacters.addAll(characters)
+        adapter.replaceItems(listOfCharacters)
+        page++
     }
 
     private fun onCharacterClicked(character: CharacterModel) {
@@ -152,5 +157,9 @@ class CharactersFragment : Fragment() {
         bundle.putSerializable(ARGUMENT_BUNDLE_CHARACTER, character)
         intent.putExtra(ARGUMENT_INTENT_BUNDLE_CHARACTER, bundle)
         startActivityForResult(intent, Activity.RESULT_OK)
+    }
+
+    private fun setProgress(isVisible: Boolean) {
+        progressBar.visibility = if (isVisible) View.VISIBLE else View.GONE
     }
 }
